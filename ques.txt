@@ -1,0 +1,3 @@
+1.  Distribution of incidents under a particular severity and priority. (Eg: Sverity S5: Priority 2: Count of incidents: 100 )
+2.  Urgency wise distribution of incidents(Eg: Urgency High : Count: 100)
+3.  Identify  the incident which took the maximum resolution time(difference between created time and resolve time) in each urgency. (Urgency High: Incident no: 982999)

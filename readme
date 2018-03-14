@@ -1,0 +1,47 @@
+Mapreduce Python Solution
+
+csv file used:tom.csv
+
+Made some editings 
+1.Added a reference time frame
+2.Row number 902 was not in proper order,using csv object solved it.
+
+Q1.  Distribution of incidents under a particular severity and priority. (Eg: Sverity S5: Priority 2: Count of incidents: 100 )
+
+Solution
+
+mapper:tcsmap1.py
+reducer:tcsred1.py
+solution:q1solution
+
+Q2.  Urgency wise distribution of incidents(Eg: Urgency High : Count: 100)
+
+Solution
+
+mapper:tcsmap2.py
+reducer:tcsred2.py
+solution:q2solution
+
+
+Q3.  Identify  the incident which took the maximum resolution time(difference between created time and resolve time) in each urgency. (Urgency High: Incident no: 982999)
+
+Suppose two or more incident take the maximum resolution time then how to proceed I had implemented a list based approach for this. 
+
+Solution
+
+mapper:tcsmap3.py
+reducer:tcsred3.py
+solution:q3solution
+
+
+
+
+Hadoop Steps
+
+hdfs namenode -format
+start-dfs.sh
+hadoop fs -mkdir /input
+hadoop fs -put ~/tom.csv /input
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.5.jar -input /input/tom.csv -output /output -mapper /home/tom/mapper.py -reducer /home/tom/reducer.py
+hadoop fs -cat /output/part-00000 
+
